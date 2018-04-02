@@ -32,3 +32,4 @@ def convert_ip(data):
                 data['converted_city'] = None
                 error_count += 1
     print ('error', error_count, 'empty', empty_count)
+    return data 
