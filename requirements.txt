@@ -1,3 +1,2 @@
 ua_parser
-geoip2
 geolite2
