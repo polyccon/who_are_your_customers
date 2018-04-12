@@ -12,7 +12,7 @@ def parse_user_agent(data):
             data['browser'].append(browser)
             data['os'].append(os)
     except:
-        print ('here')
+        print ('Error converting browser and os')
         data['browser'].append(None)
         data['os'].append(None)
     print ('Finished convert user agent strings to os and browser')

@@ -7,14 +7,14 @@ def parse_data(filename):
     print ('Reading input data file')
 
     with gzip.open(filename, 'rb') as f:
-        data = f.read()
-        lines = data.decode("utf-8").replace("\n", "\\n").split("\\")
-        f.close()
+         data = f.read()
+         lines = data.decode("utf-8").replace("\n", "\\n").split("\\")
+         f.close()
 
     print ('Finished reading input data file')
 
     d= { 'date' : [], 'time' : [], 'user_id' : [], 'url' : [], 'IP' : [],
-    'ua_string' : [], 'ip_query': []}
+    'ua_string' : []}
     print ('Parsing data started')
     for line in lines:
         line_params = line.split('\t')
@@ -27,6 +27,7 @@ def parse_data(filename):
             d['url'].append(url)
             d['IP'].append(IP)
             d['ua_string'].append(user_agent_string)
+
         else:
             continue
 

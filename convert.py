@@ -5,38 +5,18 @@ import glob
 import gzip
 import os
 import pandas as pd
-from user_agents import parse
 import sys
 
-
-def usage():
-
-	print("Usage: python " + os.path.basename(__file__) + "path-to-source-data-directory path-to-geolite2-city-database")
-
-def main(data):
+def main(data, pathtodatabase):
     data['city']=[]
     data['country']=[]
-
-    if sys.argv[1] == "-h" or sys.argv[1] == "--help":
-        usage()
-        sys.exit(0)
-    if len(sys.argv) == 3:
-        dir       = sys.argv[1]
-        geoip2_db = sys.argv[2]
-    else:
-        usage()
-        sys.exit(2)
-
-    print("Finding GZIP files to load...")
-    file_list = sorted(glob.glob(dir + "/" + "*.gz"))
-
-    print("Loading GeoLite2-City database...")
     
-    geoip2_db_reader = geoip2.database.Reader(geoip2_db)
+    geoip2_db_reader = geoip2.database.Reader(pathtodatabase)
 
     ip_array = data['IP']
+	print ('Started looping over IP addresses for converting')
 
-    for ip in ip_array:
+     for ip in ip_array:
         ip = ip.split(", ")[0]
         try:
 
