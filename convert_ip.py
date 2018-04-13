@@ -34,6 +34,8 @@ def main(data):
     ip_array = data['IP']
     reader = geolite2.reader()
 
+    print ('Starting IP conversion to city, country')
+    
     for ip in ip_array:
         ips = ip.split(', ')
         ip_valid = isipvalid(ips)
@@ -62,16 +64,16 @@ def main(data):
             elif location_1 is not None and 'country' in location_1.keys() and 'city' in location_1.keys():
                 data['country'].append(location_1['country']['names']['en'])
                 data['city'].append(location_1['city']['names']['en'])
-            elif location_0 is not None and 'country' in location.keys():
-                data['country'].append(location_0['country']['names']['en'])
+            elif location_1 is not None and 'country' in location_1.keys():
+                data['country'].append(location_1['country']['names']['en'])
                 data['city'].append('Unknown')
-            elif location_0 is not None and 'city' in location.keys():
-                data['city'].append(location['city']['names']['en'])
+            elif location_1 is not None and 'city' in location_1.keys():
+                data['city'].append(location_1['city']['names']['en'])
                 data['country'].append('Unknown')
             else:
                 data['country'].append('Unknown')
                 data['city'].append('Unknown')
-                
+
         else:
             data['country'].append('Unknown')
             data['city'].append('Unknown')

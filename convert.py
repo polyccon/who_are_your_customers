@@ -10,7 +10,7 @@ import sys
 def main(data, pathtodatabase):
     data['city']=[]
     data['country']=[]
-    
+
     geoip2_db_reader = geoip2.database.Reader(pathtodatabase)
 
     ip_array = data['IP']
@@ -26,18 +26,17 @@ def main(data, pathtodatabase):
             geoip2_city    = "Unknown"
             geoip2_country = "Unknown"
 
-
         try:
 
             if geoip2_response.city.name:
                 geoip2_city_exists = 1
-
             else:
                 geoip2_city_exists = 0
 
         except:
 
             geoip2_city_exists = 0
+			
         if geoip2_city_exists == 1:
             if geoip2_response.city.name:
                 geoip2_city    = geoip2_response.city.name
