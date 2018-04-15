@@ -27,24 +27,16 @@ def etl():
 
 
 d = etl()
-
-
-print ('country', len(d['country']))
-print ('city', len(d['city']))
-print ('user_id', len(d['user_id']))
-print ('browser', len(d['browser']))
-print ('os', len(d['os']))
-
-
 df = pd.DataFrame(data=d)
-# Top 5 Countries based on number of events
+
+print ('Top 5 Countries based on number of events:')
 print (df['country'].value_counts().head())
 
-#Top 5 Cities based on number of events
+print ('Top 5 Cities based on number of events:')
 print (df['city'].value_counts().head())
 
-#Top 5 Browsers based on number of unique users
+print ('Top 5 Browsers based on number of unique users:')
 print (df.groupby('browser')['user_id'].nunique().sort_values(ascending=False).head())
 
-#Top 5 OS based on number of unique users
+print ('Top 5 OS based on number of unique users:')
 print (df.groupby('os')['user_id'].nunique().sort_values(ascending=False).head())
