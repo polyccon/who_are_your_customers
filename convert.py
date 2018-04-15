@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 
 import geoip2.database
-import glob
-import gzip
-import os
-import pandas as pd
 import sys
 
 def main(data, pathtodatabase):
@@ -36,7 +32,7 @@ def main(data, pathtodatabase):
         except:
 
             geoip2_city_exists = 0
-			
+
         if geoip2_city_exists == 1:
             if geoip2_response.city.name:
                 geoip2_city    = geoip2_response.city.name

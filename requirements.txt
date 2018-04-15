@@ -1,2 +1,2 @@
-ua_parser
+pyyaml ua-parser user-agents
 geolite2
