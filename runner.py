@@ -10,7 +10,7 @@ def usage():
 	print("Usage: python " + os.path.basename(__file__) + "path-to-source-data-directory")
 
 def etl():
-    print (sys.argv)
+
     if len(sys.argv)>= 1 and (sys.argv[1] == "-h" or sys.argv[1] == "--help"):
         usage()
         sys.exit(0)
@@ -37,8 +37,14 @@ print ('os', len(d['os']))
 
 
 df = pd.DataFrame(data=d)
-print (df.head())
+# Top 5 Countries based on number of events
 print (df['country'].value_counts().head())
+
+#Top 5 Cities based on number of events
 print (df['city'].value_counts().head())
-print (df.groupby(['user_id'])['browser'].value_counts().sort_values(ascending=False).head())
-print (df.groupby(['user_id'])['os'].value_counts().sort_values(ascending=False).head())
+
+#Top 5 Browsers based on number of unique users
+print (df.groupby('browser')['user_id'].nunique().sort_values(ascending=False).head())
+
+#Top 5 OS based on number of unique users
+print (df.groupby('os')['user_id'].nunique().sort_values(ascending=False).head())
