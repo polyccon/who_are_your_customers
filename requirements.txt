@@ -1,2 +1,4 @@
-pyyaml ua-parser user-agents
-geolite2
+ua-parser
+user_agents
+pandas
+maxminddb-geolite2
