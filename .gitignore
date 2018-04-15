@@ -6,3 +6,4 @@ geo_api.py
 *.gz
 input_data/
 my_env/
+src/__pycache__

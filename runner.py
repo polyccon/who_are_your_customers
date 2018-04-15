@@ -2,9 +2,9 @@ import pandas as pd
 import sys
 import os
 
-from data_parser import parse_data
-from convert_ip import main
-from parse_user_agent import parse_user_agent
+from src.data_parser import parse_data
+from src.convert_ip import main
+from src.parse_user_agent import parse_user_agent
 
 def usage():
 	print("Usage: python " + os.path.basename(__file__) + "path-to-source-data-directory")
