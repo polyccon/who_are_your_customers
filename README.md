@@ -1,7 +1,7 @@
 # Who are your customers
 
-Run the code following the instructions below, with a file named, to extract
-information about the `city, country and use of browser/os system`.
+Run the code following the instructions below, to extract relevant information
+about who visits your website.
 
 ### Instructions for use:
 
